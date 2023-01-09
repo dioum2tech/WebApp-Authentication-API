@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WebApp-Authentication-API.props" />
+</Project>

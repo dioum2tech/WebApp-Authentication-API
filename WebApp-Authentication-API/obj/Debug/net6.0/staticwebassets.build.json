@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Q6Mya9gomMatWIuv9dwHliv9RA/GrEJyqp9RI0qzWE4=",
+  "Source": "WebApp-Authentication-API",
+  "BasePath": "_content/WebApp-Authentication-API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
