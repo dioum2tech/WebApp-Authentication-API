@@ -25,27 +25,29 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-
-app.UseHttpsRedirection();
-
-// Authenticate and authorize requests
-app.UseAuthentication();
-app.UseAuthorization();
+var azureAD = app.Services.GetService<IOptions<AzureAdOptions>>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c => {
-        //c.RoutePrefix = string.Empty;    
-        //c.OAuthClientId("92407a47-20b0-4391-9740-db657ccf5fd4");
-        //c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp_Authentication_API v1");
+        //c.RoutePrefix = string.Empty;
+        c.OAuthClientId($"{azureAD?.Value.ClientId}");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp Authentication API v1");
 
-        c.OAuthClientId("92407a47-20b0-4391-9740-db657ccf5fd4");
-        c.OAuthClientSecret("2278Q~IZgla6.4IcBkAmMis-kVrAzvM0AJlZgao5");
-        c.OAuthUseBasicAuthenticationWithAccessCodeGrant();
+        //c.OAuthClientId("efad9ca6-a962-4d42-808a-aff3a485e812");
+        //c.OAuthClientSecret("2278Q~IZgla6.4IcBkAmMis-kVrAzvM0AJlZgao5");
+        //c.OAuthUseBasicAuthenticationWithAccessCodeGrant();
     });
 }
+
+
+app.UseHttpsRedirection();
+
+// Authenticate and authorize requests
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
