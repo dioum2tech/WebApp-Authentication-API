@@ -66,7 +66,7 @@ namespace WebApp_Authentication_API
                         Scopes = new Dictionary<string, string>
                         {
                             ["openid"] = "Grants access to the user's profile and connect using his Microsoft account",
-                            [$"api://92407a47-20b0-4391-9740-db657ccf5fd4/ReadAcces"] = "Grants access"
+                            ["api://92407a47-20b0-4391-9740-db657ccf5fd4/.default"] = "Grants access"
                         }
                     }
                 }

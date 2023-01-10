@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add the Azure AD authentication
 builder.Services.AddCustomAuthentication(builder.Configuration);
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -36,14 +35,9 @@ app.UseAuthorization();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => {
-        //c.RoutePrefix = string.Empty;    
-        //c.OAuthClientId("92407a47-20b0-4391-9740-db657ccf5fd4");
-        //c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp_Authentication_API v1");
-
+    app.UseSwaggerUI(c => { 
         c.OAuthClientId("92407a47-20b0-4391-9740-db657ccf5fd4");
-        c.OAuthClientSecret("2278Q~IZgla6.4IcBkAmMis-kVrAzvM0AJlZgao5");
-        c.OAuthUseBasicAuthenticationWithAccessCodeGrant();
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp Authentication API v1");
     });
 }
 

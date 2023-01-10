@@ -14,9 +14,11 @@ namespace WebApp_Authentication_API
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
         public static IServiceCollection AddCustomAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            var result = configuration.GetSection("AzureAd");
+            var result = configuration.GetSection("Azure:AD");
 
-            services.AddMicrosoftIdentityWebApiAuthentication(configuration, "AzureAd");
+            services
+                .AddAuthentication(JwtDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(configuration, "Azure:AD");
 
             services.Configure<Jwt.JwtBearerOptions>(JwtDefaults.AuthenticationScheme, options =>
             {
@@ -45,18 +47,10 @@ namespace WebApp_Authentication_API
                 var unknownUniqueIdentifierException = new UnknownUniqueIdentifierAuthenticationException("User does not have object identifier");
                 context.Fail(unknownUniqueIdentifierException);
             }
-            else
+            else if (string.IsNullOrEmpty(name))
             {
-                if (string.IsNullOrEmpty(email))
-                {
-                    var unknownMailException = new UnknownEmailAuthenticationException($"User with object identifier '{uniqueId}' does not have an email.");
-                    context.Fail(unknownMailException);
-                }
-                else if (string.IsNullOrEmpty(name))
-                {
-                    var unknownNameException = new UnknownNameAuthenticationException($"User with object identifier '{uniqueId}' does not have a name.");
-                    context.Fail(unknownNameException);
-                }
+                var unknownNameException = new UnknownNameAuthenticationException($"User with object identifier '{uniqueId}' does not have a name.");
+                context.Fail(unknownNameException);
             }
         }
     }
