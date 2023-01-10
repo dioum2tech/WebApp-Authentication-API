@@ -16,6 +16,6 @@ namespace WebApp_Authentication_API
 
         public string AuthorizationUrl => $"{Instance}/{TenantId}/oauth2/v2.0/authorize";
 
-        public string TokenUrl => $"{Instance}/{TenantId}/oauth2/token";
+        public string TokenUrl => $"{Instance}/{TenantId}/oauth2/v2.0/token";
     }
 }

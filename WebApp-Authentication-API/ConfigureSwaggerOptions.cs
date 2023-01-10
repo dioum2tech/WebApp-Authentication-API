@@ -59,14 +59,13 @@ namespace WebApp_Authentication_API
                 Type = SecuritySchemeType.OAuth2,
                 Flows = new OpenApiOAuthFlows
                 {
-                    Implicit = new OpenApiOAuthFlow
+                    ClientCredentials = new OpenApiOAuthFlow
                     {
-                        AuthorizationUrl = new Uri("https://login.microsoftonline.com/6494460e-8600-4edc-850f-528e8faad290/oauth2/v2.0/authorize"),
-                        TokenUrl = new Uri("https://login.microsoftonline.com/6494460e-8600-4edc-850f-528e8faad290/oauth2/v2.0/token"),
+                        TokenUrl = new Uri(azureAdOptions.TokenUrl),
                         Scopes = new Dictionary<string, string>
                         {
                             ["openid"] = "Grants access to the user's profile and connect using his Microsoft account",
-                            ["api://92407a47-20b0-4391-9740-db657ccf5fd4/.default"] = "Grants access"
+                            [$"api://{azureAdOptions.ClientId}/.default"] = "ReadAccess"
                         }
                     }
                 }
@@ -97,7 +96,7 @@ namespace WebApp_Authentication_API
         {
             return new OpenApiInfo
             {
-                Title = "VIP Allocation Platform Web API",
+                Title = "WebApp Authentication API",
                 Version = apiVersion.ApiVersion.ToString(),
                 Description = apiVersion.IsDeprecated ? "This API version has been deprecated." : string.Empty,
             };

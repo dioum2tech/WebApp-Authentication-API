@@ -24,12 +24,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-
-app.UseHttpsRedirection();
-
-// Authenticate and authorize requests
-app.UseAuthentication();
-app.UseAuthorization();
+var azureAD = app.Services.GetService<IOptions<AzureAdOptions>>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -40,6 +35,13 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp Authentication API v1");
     });
 }
+
+
+app.UseHttpsRedirection();
+
+// Authenticate and authorize requests
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

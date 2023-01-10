@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using Jwt = Microsoft.AspNetCore.Authentication.JwtBearer;
 using JwtDefaults = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults;
@@ -16,9 +17,9 @@ namespace WebApp_Authentication_API
         {
             var result = configuration.GetSection("Azure:AD");
 
-            services
-                .AddAuthentication(JwtDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(configuration, "Azure:AD");
+            // Add services to the container.
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(configuration.GetSection("AzureAd"));
 
             services.Configure<Jwt.JwtBearerOptions>(JwtDefaults.AuthenticationScheme, options =>
             {
