@@ -64,3 +64,7 @@ C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebA
 C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\obj\Debug\net6.0\WebApp-Authentication-API.pdb
 C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\obj\Debug\net6.0\WebApp-Authentication-API.genruntimeconfig.cache
 C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\obj\Debug\net6.0\ref\WebApp-Authentication-API.dll
+C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\bin\Debug\net6.0\packages.lock.json
+C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\bin\Debug\net6.0\WebApp-Authentication-API.xml
+C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.AzureAD.UI.dll
+C:\Users\sdioum\Documents\Web-Projects\App-DotNet\WebApp-Authentication-API\WebApp-Authentication-API\obj\Debug\net6.0\WebApp-Authentication-API.xml

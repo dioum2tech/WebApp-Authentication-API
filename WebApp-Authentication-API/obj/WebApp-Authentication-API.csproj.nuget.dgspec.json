@@ -15,8 +15,7 @@
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\sdioum\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -31,8 +30,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/altazion/index.json": {},
-          "https://www.myget.org/F/pernod-ricard/auth/b4bdfaba-38d9-4089-8441-6bb74b4589d5/api/v3/index.json": {}
+          "https://nuget.pkg.github.com/altazion/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -44,12 +42,19 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
         }
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.AzureAD.UI": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.12, )"

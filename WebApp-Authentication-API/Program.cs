@@ -1,26 +1,29 @@
 using Microsoft.Extensions.Options;
+using Microsoft.Identity.Web;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using WebApp_Authentication_API;
+using WebApp_Authentication_API.Infrastructure.Configuration;
+using WebApp_Authentication_API.Infrastructure.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 // Add the Azure AD authentication
 builder.Services.AddCustomAuthentication(builder.Configuration);
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 
 // Add versioning
 builder.Services.AddCustomApiVersioning();
 
-// Add configuration settings
-builder.Services.AddOptions()
-        .Configure<AzureAdOptions>(builder.Configuration.GetSection(ApiConfigurationSections.AzureAd));
-
 // Add the Swagger generator
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 builder.Services.AddSwaggerGen();
+
+// Add configuration settings
+builder.Services.AddOptions()
+        .Configure<AzureAdOptions>(builder.Configuration.GetSection(Constants.AzureAd));
 
 var app = builder.Build();
 
@@ -30,12 +33,8 @@ var azureAD = app.Services.GetService<IOptions<AzureAdOptions>>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => { 
-        c.OAuthClientId("92407a47-20b0-4391-9740-db657ccf5fd4");
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp Authentication API v1");
-    });
+    app.UseSwaggerUI();
 }
-
 
 app.UseHttpsRedirection();
 

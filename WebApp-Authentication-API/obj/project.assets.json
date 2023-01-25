@@ -84,6 +84,26 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.AzureAD.UI/6.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.12",
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "6.0.12"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.AzureAD.UI.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.AzureAD.UI.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12": {
         "type": "package",
         "dependencies": {
@@ -1141,6 +1161,21 @@
         "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll",
         "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.xml",
         "pkgicon.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.AzureAD.UI/6.0.12": {
+      "sha512": "gBUmnWdie9zF8m5ZAuNFKh8cFSGMAe5xcAI0WfptwCzepvJF4XlLCgZlpzSVbSt04a3m8orxA0ypKI5vehDFqA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.azuread.ui/6.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.AzureAD.UI.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.AzureAD.UI.xml",
+        "microsoft.aspnetcore.authentication.azuread.ui.6.0.12.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.azuread.ui.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12": {
@@ -2786,6 +2821,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Microsoft.AspNetCore.Authentication.AzureAD.UI >= 6.0.12",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.12",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 6.0.12",
       "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= 5.0.0",
@@ -2798,8 +2834,7 @@
   "packageFolders": {
     "C:\\Users\\sdioum\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -2812,8 +2847,7 @@
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\sdioum\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2828,8 +2862,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/altazion/index.json": {},
-        "https://www.myget.org/F/pernod-ricard/auth/b4bdfaba-38d9-4089-8441-6bb74b4589d5/api/v3/index.json": {}
+        "https://nuget.pkg.github.com/altazion/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -2841,12 +2874,19 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreLockProperties": {
+        "restorePackagesWithLockFile": "true"
       }
     },
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.AzureAD.UI": {
+            "target": "Package",
+            "version": "[6.0.12, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[6.0.12, )"

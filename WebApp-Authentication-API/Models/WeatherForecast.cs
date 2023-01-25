@@ -1,4 +1,4 @@
-namespace WebApp_Authentication_API
+namespace WebApp_Authentication_API.Models
 {
     public class WeatherForecast
     {

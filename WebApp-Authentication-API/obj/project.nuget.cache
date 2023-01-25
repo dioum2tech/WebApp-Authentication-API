@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xLnjczI76bSIVowmJblVs5HjyicEkA5n2Xb2E251BdM+em6+33qSgRPoCoOnhY/pvwkVNPgDxuuOzdMEAEDBnw==",
+  "dgSpecHash": "mD2djT74hHOsOndE464QOR3uRvfBst/PvrOslMpvZXju4HrAdDMFIxsPLCMX9K74Xf1R+2ooRNcNDHPKkmrHTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\sdioum\\Documents\\Web-Projects\\App-DotNet\\WebApp-Authentication-API\\WebApp-Authentication-API\\WebApp-Authentication-API.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\sdioum\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
     "C:\\Users\\sdioum\\.nuget\\packages\\azure.security.keyvault.certificates\\4.1.0\\azure.security.keyvault.certificates.4.1.0.nupkg.sha512",
     "C:\\Users\\sdioum\\.nuget\\packages\\azure.security.keyvault.secrets\\4.1.0\\azure.security.keyvault.secrets.4.1.0.nupkg.sha512",
+    "C:\\Users\\sdioum\\.nuget\\packages\\microsoft.aspnetcore.authentication.azuread.ui\\6.0.12\\microsoft.aspnetcore.authentication.azuread.ui.6.0.12.nupkg.sha512",
     "C:\\Users\\sdioum\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.12\\microsoft.aspnetcore.authentication.jwtbearer.6.0.12.nupkg.sha512",
     "C:\\Users\\sdioum\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\6.0.12\\microsoft.aspnetcore.authentication.openidconnect.6.0.12.nupkg.sha512",
     "C:\\Users\\sdioum\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.8\\microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",

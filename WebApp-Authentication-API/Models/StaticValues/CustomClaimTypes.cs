@@ -1,4 +1,4 @@
-namespace WebApp_Authentication_API
+namespace WebApp_Authentication_API.Models.StaticValues
 {
     public static class CustomClaimTypes
     {

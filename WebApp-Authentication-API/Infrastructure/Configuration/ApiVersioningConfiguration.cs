@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WebApp_Authentication_API
+namespace WebApp_Authentication_API.Infrastructure.Configuration
 {
     public static class ApiVersioningConfiguration
     {
