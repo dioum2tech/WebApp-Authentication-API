@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Options;
 using Microsoft.Identity.Web;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -33,7 +34,13 @@ var azureAD = app.Services.GetService<IOptions<AzureAdOptions>>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.OAuthUsePkce();
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API V1");
+        c.OAuthClientId(azureAD.Value.SwaggerClientId);
+        c.OAuthScopes("openid", azureAD.Value.CustomScopeApi);
+    });
 }
 
 app.UseHttpsRedirection();

@@ -18,6 +18,7 @@ namespace WebApp_Authentication_API.Infrastructure.Configuration
         public void Configure(SwaggerGenOptions options)
         {
             #region OAuth2 Implicit
+
             options.AddSecurityDefinition("OAuth2 Implicit", new OpenApiSecurityScheme
             {
                 Type = SecuritySchemeType.OAuth2,
@@ -33,7 +34,7 @@ namespace WebApp_Authentication_API.Infrastructure.Configuration
                         {
                             { azureAdOptions.CustomScopeApi, azureAdOptions.CustomScopeApi },
                         }
-                    }
+                    },
                 }
             });
 
@@ -53,9 +54,11 @@ namespace WebApp_Authentication_API.Infrastructure.Configuration
                     new List<string>()
                 }
             });
-            #endregion
+
+            #endregion OAuth2 Implicit
 
             #region Bearer
+
             options.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
             {
                 Name = "Authorization",
@@ -81,9 +84,11 @@ namespace WebApp_Authentication_API.Infrastructure.Configuration
                     new List<string>()
                 }
             });
-            #endregion
+
+            #endregion Bearer
 
             #region OAuth Client Credentials
+
             options.AddSecurityDefinition("OAuth Client Credentials", new OpenApiSecurityScheme
             {
                 Type = SecuritySchemeType.OAuth2,
@@ -116,7 +121,49 @@ namespace WebApp_Authentication_API.Infrastructure.Configuration
                     new List<string>()
                 }
             });
-            #endregion
+
+            #endregion OAuth Client Credentials
+
+            #region Authorization code
+
+            options.AddSecurityDefinition("OAuth2 autorization code", new OpenApiSecurityScheme
+            {
+                Type = SecuritySchemeType.OAuth2,
+                Scheme = "oauth2_auth_code",
+                In = ParameterLocation.Header,
+                Name = "Authorization",
+                Flows = new OpenApiOAuthFlows
+                {
+                    AuthorizationCode = new OpenApiOAuthFlow
+                    {
+                        AuthorizationUrl = new Uri(azureAdOptions.AuthorizationUrl),
+                        TokenUrl = new Uri(azureAdOptions.TokenUrl),
+                        Scopes = new Dictionary<string, string>
+                        {
+                            { "openid", "OpenID" },
+                            { azureAdOptions.CustomScopeApi, "Your API Scope"  },
+                        }
+                    }
+                }
+            });
+
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        In = ParameterLocation.Header,
+                        Reference = new OpenApiReference
+                        {
+                            Id = "OAuth2 autorization code",
+                            Type = ReferenceType.SecurityScheme
+                        }
+                    },
+                    new[] { "openid", azureAdOptions.CustomScopeApi }
+                }
+            });
+
+            #endregion Authorization code
         }
     }
 }
