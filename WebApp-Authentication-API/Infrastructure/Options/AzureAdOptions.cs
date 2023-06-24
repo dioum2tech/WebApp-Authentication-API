@@ -6,6 +6,8 @@ namespace WebApp_Authentication_API.Infrastructure.Options
 
         public string? ClientId { get; set; }
 
+        public string? SwaggerClientId { get; set; }
+
         public string? ClientSecret { get; set; }
 
         public string? CallbackPath { get; set; }
